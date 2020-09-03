@@ -80,10 +80,19 @@ class App extends Component {
       style.backgroundColor = 'red';
     }
 
+    // let classes = ['red', 'bold'].join(' '); // 'red bold'
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red'); // class = red
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold'); // class = red bold
+    }
+
     return (
       <div className="App">
         <h1> Class Component </h1>
-        <p> This is really working </p>
+        <p className={classes.join(' ')}> This is really working </p>
         {/* <button
           style={style}
           onClick={this.switchNameHandler.bind(this, "MIN")}
