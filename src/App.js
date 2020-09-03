@@ -53,7 +53,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
+      color: 'white',
       font: "inherit",
       border: "1x solid blue",
       padding: "8px",
@@ -76,13 +77,14 @@ class App extends Component {
           })}
       </div>
       )
+      style.backgroundColor = 'red';
     }
 
     return (
       <div className="App">
         <h1> Class Component </h1>
         <p> This is really working </p>
-        <button
+        {/* <button
           style={style}
           onClick={this.switchNameHandler.bind(this, "MIN")}
         >
@@ -90,7 +92,7 @@ class App extends Component {
         </button>
         <button style={style} onClick={() => this.switchNameHandler("MIN!!!")}>
           Switch Name
-        </button>
+        </button> */}
         <button style={style} onClick={this.togglePersonHandler}>
           Toggle Persons
         </button>
