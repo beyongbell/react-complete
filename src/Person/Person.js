@@ -5,3 +5,5 @@ const person = () => {
 }
 
 export default person;
+
+// Function Component
