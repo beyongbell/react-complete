@@ -5,9 +5,9 @@ import Person from "./Person/Person";
 class App extends Component {
   state = {
     persons: [
-      { name: "Max", age: 28 },
-      { name: "Menu", age: 29 },
-      { name: "Stage", age: 26 },
+      { id: 1, name: "Max", age: 28 },
+      { id: 2, name: "Menu", age: 29 },
+      { id: 3, name: "Stage", age: 26 },
     ],
     otherState: "some other value",
     showPersons: false,
@@ -16,9 +16,9 @@ class App extends Component {
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
-        { name: newName, age: 28 },
-        { name: "List", age: 29 },
-        { name: "Gate", age: 26 },
+        { id: 1, name: newName, age: 28 },
+        { id: 2, name: "List", age: 29 },
+        { id: 3, name: "Gate", age: 26 },
       ],
     });
   };
@@ -26,15 +26,16 @@ class App extends Component {
   nameChangedHandler = (event) => {
     this.setState({
       persons: [
-        { name: "Min", age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: "Gate", age: 26 },
+        { id: 1, name: "Min", age: 28 },
+        { id: 2, name: event.target.value, age: 29 },
+        { id: 3, name: "Gate", age: 26 },
       ],
     });
   };
 
   deletePersonHandler = (index) => {
-    const persons = this.state.persons;
+    // const persons = this.state.persons;
+    const persons = [...this.state.persons];
     persons.splice(index, 1);
     this.setState({ persons: persons })
   }
@@ -60,7 +61,7 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, i) => {
             return <Person
-              key={i}
+              key={person.id}
               name={person.name}
               age={person.age}
               click={() => this.deletePersonHandler(i) }
